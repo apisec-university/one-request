@@ -34,7 +34,20 @@ poetry run dev
 
 The application should now be available on http://localhost:8000.
 
-### Application Data 
+## Solving the Application
+
+Numerous write-ups are available online from the original event. 
+
+Want yours included here? Submit a PR or message us in Discord!
+
+To verify application can be solved using the included `solve.py` script, run the following commands:
+
+```shell
+poetry install
+poetry run solve
+```
+
+## Application Data 
 
 Data is stored in the SQLite database at `data/one_request.sqlite3`.
 
