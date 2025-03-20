@@ -36,16 +36,21 @@ The application should now be available on http://localhost:8000.
 
 ## Solving the Application
 
-Numerous write-ups are available online from the original event. 
-
-Want yours included here? Submit a PR or message us in Discord!
-
 To verify application can be solved using the included `solve.py` script, run the following commands:
 
 ```shell
 poetry install
 poetry run solve
 ```
+
+### CTF Write-ups
+
+Numerous write-ups on how to complete the CTF are available online from the original event. 
+
+Want yours included here? Submit a PR or message us in Discord!
+
+- [MRE Security](https://mresecurity.com/blog/apisec-con-ctf-2025-writeup/#getting-started) 
+- MRE Security Video Walkthrough: [Part 1](https://youtu.be/cKTUNwxfyVA) and [Part 2](https://youtu.be/XdLtUMv9OmE) 
 
 ## Application Data 
 
