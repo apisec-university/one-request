@@ -1,4 +1,4 @@
-# One Request to rule them all!
+# One Request to Rule Them All!
 
 The One Request CTF event was hosted from February 27th to March 2nd, 2025 by APIsec University. The application 
 utilized in the event is available in this repository, with minimal modifications, for educational purposes.
@@ -16,7 +16,23 @@ cd one-request
 docker compose up -d 
 ```
 
+The application should now be available on http://localhost:8000. 
+
 To stop the application, run `docker compose down` from the repo directory.
+
+## Running the Application Locally via Poetry
+
+To run the application locally, you will need to have Python3 installed on your system. Python 3.10+ is recommended.
+
+Run the following commands to start the application:
+
+```shell
+poetry install
+poetry shell
+poetry run dev
+```
+
+The application should now be available on http://localhost:8000.
 
 ### Application Data 
 
