@@ -13,7 +13,7 @@ LONG_MAX = 174
 def is_location_viable(lat: str, long: str):
     return LAT_MIN <= float(lat) <= LAT_MAX and LONG_MIN <= float(long) <= LONG_MAX
 
-BASE_URL = "http://localhost:1337"
+BASE_URL = "http://localhost:8000"
 
 # helpers to auto-fail and dump json to console
 def get(session: requests.Session, url: str, **kwargs) -> dict:
