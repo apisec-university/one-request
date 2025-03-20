@@ -52,5 +52,5 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry.scripts]
 dev = "one_request.__main__:main"
-gen-data = "scripts.gen_data:main"
+solve = "scripts.solve:main"
 
