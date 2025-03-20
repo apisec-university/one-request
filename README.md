@@ -49,8 +49,12 @@ Numerous write-ups on how to complete the CTF are available online from the orig
 
 Want yours included here? Submit a PR or message us in Discord!
 
-- [MRE Security](https://mresecurity.com/blog/apisec-con-ctf-2025-writeup/#getting-started) 
-- MRE Security Video Walkthrough: [Part 1](https://youtu.be/cKTUNwxfyVA) and [Part 2](https://youtu.be/XdLtUMv9OmE) 
+- MRE Security: 
+  - Blog: https://mresecurity.com/blog/apisec-con-ctf-2025-writeup/#getting-started
+  - Video: [Part 1](https://youtu.be/cKTUNwxfyVA) and [Part 2](https://youtu.be/XdLtUMv9OmE)
+- The Pentesting Ninja:
+  - Blog: https://blog.thepentesting.ninja/apisec-ctf-2025
+  - Video: https://youtu.be/-7NpHG0RKvc
 
 ## Application Data 
 
