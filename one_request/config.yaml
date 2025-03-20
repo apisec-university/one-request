@@ -1,0 +1,19 @@
+openapi:
+  name: "One Request API"
+  description: "One Request to Rule Them All!"
+  show_scopes: false
+  openapi_url: /openapi.json
+  docs_url: /docs
+  redocs_url: /redoc
+  server: "http://localhost:8000"
+auth:
+  token_url: /token
+  jwt:
+    secret_key: "asdf"
+    expiration: 600000000
+log:
+  level: debug
+#  sql: True
+db:
+  url: sqlite:///data/one_request.sqlite3
+#  url: postgresql://postgres:postgres@localhost:5432/onerequest

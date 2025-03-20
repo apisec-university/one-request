@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers | One Request</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #8e6d3a;
+            --accent: #7D621C;
+            --background: #f5f3e7;
+            --text: #303030;
+            --code-bg: #2c3e50;
+            --code-text: #e6e1d5;
+        }
+
+        body {
+            font-family: 'Palatino Linotype', Georgia, serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1rem 0;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            padding: 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .page-header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .page-content {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sidebar {
+            flex: 1;
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            max-width: 250px;
+        }
+
+        .main-content {
+            flex: 3;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-list li {
+            margin-bottom: 1rem;
+        }
+
+        .nav-list a {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-list a:hover {
+            background-color: #f0ece0;
+            color: var(--accent);
+        }
+
+        .nav-list .section-title {
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        .docs-section {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .docs-section h2 {
+            color: var(--primary);
+            font-family: 'Cinzel', serif;
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .docs-section h3 {
+            color: var(--accent);
+            margin-top: 2rem;
+            font-size: 1.4rem;
+        }
+
+        .endpoint {
+            margin-bottom: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .endpoint-header {
+            display: flex;
+            padding: 1rem;
+            background-color: #f9f7f1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .method {
+            font-weight: bold;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            margin-right: 1rem;
+            color: #fff;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .get {
+            background-color: #28a745;
+        }
+
+        .post {
+            background-color: #007bff;
+        }
+
+        .put {
+            background-color: #ffc107;
+            color: #212529;
+        }
+
+        .delete {
+            background-color: #dc3545;
+        }
+
+        .endpoint-path {
+            font-family: monospace;
+            font-size: 1rem;
+            align-self: center;
+        }
+
+        .endpoint-body {
+            padding: 1rem;
+        }
+
+        .parameters {
+            margin-top: 1rem;
+        }
+
+        .parameter {
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .required {
+            color: #dc3545;
+        }
+
+        .optional {
+            color: #6c757d;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.5rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 1.5rem 0;
+        }
+
+        .response {
+            margin-top: 1.5rem;
+        }
+
+        .tab-container {
+            margin-top: 1.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            background-color: #f9f7f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 0.5rem;
+        }
+
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+            margin-bottom: -1px;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .api-key {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .download-section {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent);
+        }
+
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .scroll-text {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            color: #d1b771;
+        }
+
+        @media (max-width: 768px) {
+            .page-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: static;
+                max-width: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">One Request</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/developers">Developers</a></li>
+                    <li><a href="/challenges">Challenges</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Developer Portal</h1>
+            <p>Access the power of One Request through our comprehensive API</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-content">
+            <div class="sidebar">
+                <ul class="nav-list">
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#authentication">Authentication</a></li>
+
+                    <li class="section-title">Core Resources</li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#groups">Groups</a></li>
+                    <li><a href="#users">Users</a></li>
+
+                    <li class="section-title">Additional Resources</li>
+                    <li><a href="#bookings">Bookings</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#support">Support Requests</a></li>
+
+                    <li class="section-title">Tools</li>
+                    <li><a href="#postman">Postman Collection</a></li>
+                    <li><a href="#openapi">OpenAPI Spec</a></li>
+                </ul>
+            </div>
+
+            <div class="main-content">
+                <section id="getting-started" class="docs-section">
+                    <h2>Getting Started</h2>
+                    <p>Welcome to the One Request API, connecting the realms of Middle-earth through a single unified interface. Our API provides programmatic access to locations, activities, groups, and more, allowing developers to create custom journey planning applications.</p>
+
+                    <div class="note">
+                        <strong>Note:</strong> The One Request system is currently available only through our API. Our master craftsmen are forging a user interface worthy of display in the halls of kings, but until its completion, all interactions must occur through this API.
+                    </div>
+
+                    <h3>Base URL</h3>
+                    <p>All API requests should be directed to:</p>
+                    <div class="code-block">
+                        https://one-request.apisecuniversity.com/v2
+                    </div>
+
+                    <h3>Request Format</h3>
+                    <p>The API accepts JSON for request bodies and returns JSON responses. All requests must include the appropriate <code>Content-Type</code> header:</p>
+                    <div class="code-block">
+                        Content-Type: application/json
+                    </div>
+                </section>
+
+                <section id="authentication" class="docs-section">
+                    <h2>Authentication</h2>
+                    <p>One Request requires authentication for all API endpoints. We use JWT (JSON Web Tokens) for secure authentication.</p>
+
+                    <h3>Obtaining Tokens</h3>
+                    <p>To obtain an access token, make a POST request to the authentication endpoint:</p>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method post">POST</span>
+                            <span class="endpoint-path">/auth/token</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Authenticates a user and returns access and refresh tokens.</p>
+
+                            <div class="parameters">
+                                <h4>Request Body:</h4>
+                                <ul>
+                                    <li><span class="parameter required">email</span> - User's registered email</li>
+                                    <li><span class="parameter required">password</span> - User's password</li>
+                                </ul>
+                            </div>
+
+                            <div class="code-block">
+{
+  "email": "user@example.com",
+  "password": "secure_password"
+}
+                            </div>
+
+                            <div class="response">
+                                <h4>Response:</h4>
+                                <div class="code-block">
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer",
+  "expires_in": 3600
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Using Authentication</h3>
+                    <p>Include the access token in the Authorization header for all authenticated requests:</p>
+                    <div class="code-block">
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                    </div>
+
+                    <h3>Token Refresh</h3>
+                    <p>When an access token expires, use the refresh token to obtain a new one:</p>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method post">POST</span>
+                            <span class="endpoint-path">/auth/refresh</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <div class="parameters">
+                                <h4>Request Body:</h4>
+                                <ul>
+                                    <li><span class="parameter required">refresh_token</span> - Valid refresh token</li>
+                                </ul>
+                            </div>
+
+                            <div class="code-block">
+{
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="locations" class="docs-section">
+                    <h2>Locations</h2>
+                    <p>The Locations API provides access to our extensive catalog of vetted destinations across Middle-earth.</p>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method get">GET</span>
+                            <span class="endpoint-path">/locations</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Returns a paginated list of all available locations.</p>
+
+                            <div class="parameters">
+                                <h4>Query Parameters:</h4>
+                                <ul>
+                                    <li><span class="parameter optional">page</span> - Page number (default: 1)</li>
+                                    <li><span class="parameter optional">size</span> - Results per page (default: 20)</li>
+                                    <li><span class="parameter optional">sort</span> - Sort field (name, id)</li>
+                                    <li><span class="parameter optional">order</span> - Sort order (asc, desc)</li>
+                                </ul>
+                            </div>
+
+                            <div class="response">
+                                <h4>Response:</h4>
+                                <div class="code-block">
+{
+  "items": [
+    {
+      "id": "b8f7c5e2-3a1d-4b6f-9c8d-7e5f4a3b2c1d",
+      "name": "Rivendell",
+      "description": "The Last Homely House East of the Sea, nestled in a hidden valley",
+      "lat": "54.2361",
+      "long": "-7.8921",
+      "reviews": [
+        {
+          "id": "d3c2b1a9-8f7e-6d5c-4b3a-2c1d0f9e8d7",
+          "rating": 5,
+          "review": "The halls echo with ancient wisdom and song. A sanctuary for weary travelers."
+        }
+      ]
+    },
+    ...
+  ],
+  "total": 42,
+  "page": 1,
+  "size": 20,
+  "pages": 3
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method get">GET</span>
+                            <span class="endpoint-path">/locations/{id}</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Returns detailed information about a specific location.</p>
+
+                            <div class="parameters">
+                                <h4>Path Parameters:</h4>
+                                <ul>
+                                    <li><span class="parameter required">id</span> - Location unique identifier</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="activities" class="docs-section">
+                    <h2>Activities</h2>
+                    <p>The Activities API allows discovery and booking of experiences across Middle-earth.</p>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method get">GET</span>
+                            <span class="endpoint-path">/activities</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Returns a paginated list of available activities.</p>
+
+                            <div class="parameters">
+                                <h4>Query Parameters:</h4>
+                                <ul>
+                                    <li><span class="parameter optional">location_id</span> - Filter by location</li>
+                                    <li><span class="parameter optional">day</span> - Filter by date (YYYY-MM-DD)</li>
+                                    <li><span class="parameter optional">price_min</span> - Minimum price</li>
+                                    <li><span class="parameter optional">price_max</span> - Maximum price</li>
+                                    <li><span class="parameter optional">currency</span> - Currency (GOLD, SILV, MITH)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method post">POST</span>
+                            <span class="endpoint-path">/activities</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Creates a new activity.</p>
+
+                            <div class="parameters">
+                                <h4>Request Body:</h4>
+                                <ul>
+                                    <li><span class="parameter required">name</span> - Activity name</li>
+                                    <li><span class="parameter required">description</span> - Detailed description</li>
+                                    <li><span class="parameter required">price</span> - Activity cost</li>
+                                    <li><span class="parameter required">currency</span> - Currency code (GOLD, SILV, MITH)</li>
+                                    <li><span class="parameter required">day</span> - Date of activity (YYYY-MM-DD)</li>
+                                    <li><span class="parameter optional">invite_code</span> - Private activity access code</li>
+                                    <li><span class="parameter optional">group_id</span> - Associated group ID</li>
+                                </ul>
+                            </div>
+
+                            <div class="code-block">
+{
+  "name": "Starlight Feast",
+  "description": "An evening of feasting and song beneath the stars of Elendil",
+  "price": 450,
+  "currency": "SILV",
+  "day": "3019-04-15",
+  "invite_code": "mellon",
+  "group_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6"
+}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="groups" class="docs-section">
+                    <h2>Groups</h2>
+                    <p>The Groups API enables fellowship management, allowing coordination between travelers.</p>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method get">GET</span>
+                            <span class="endpoint-path">/groups</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Returns groups the authenticated user belongs to.</p>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method post">POST</span>
+                            <span class="endpoint-path">/groups</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Creates a new group with the authenticated user as owner.</p>
+
+                            <div class="parameters">
+                                <h4>Request Body:</h4>
+                                <ul>
+                                    <li><span class="parameter required">name</span> - Group name</li>
+                                    <li><span class="parameter required">description</span> - Group description</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <div class="endpoint-header">
+                            <span class="method get">GET</span>
+                            <span class="endpoint-path">/groups/{id}/chats</span>
+                        </div>
+                        <div class="endpoint-body">
+                            <p>Returns chat messages for a specific group.</p>
+
+                            <div class="parameters">
+                                <h4>Path Parameters:</h4>
+                                <ul>
+                                    <li><span class="parameter required">id</span> - Group unique identifier</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="postman" class="docs-section">
+                    <h2>Postman Collection</h2>
+                    <p>To simplify your development process, we provide a complete Postman collection containing all endpoints, example requests, and authentication workflows.</p>
+
+                    <div class="download-section">
+                        <a href="/postman.json" class="download-btn">Download Postman Collection</a>
+                    </div>
+
+                    <h3>Using the Collection</h3>
+                    <ol>
+                        <li>Download the collection JSON file</li>
+                        <li>Import into Postman using File → Import</li>
+                        <li>Set up an environment with your API credentials</li>
+                        <li>Run the authentication request to populate your tokens</li>
+                    </ol>
+
+                    <div class="note">
+                        <strong>Important:</strong> Our collection uses environment variables for authentication tokens and base URL. Be sure to configure your Postman environment accordingly.
+                    </div>
+                </section>
+
+                <section id="openapi" class="docs-section">
+                    <h2>OpenAPI Specification</h2>
+                    <p>One Request follows OpenAPI 3.0 specifications. The complete schema is available for download and can be used with tools like Swagger UI, ReDoc, or any OpenAPI-compatible code generator.</p>
+
+                    <div class="download-section">
+                        <a href="/openapi.json" class="download-btn">Download OpenAPI Spec</a>
+                        <a href="/docs" class="download-btn" style="background-color: var(--primary); margin-left: 1rem;">Browse Interactive Docs</a>
+                    </div>
+
+                    <p>Our interactive documentation provides a convenient way to explore the API without leaving your browser. For the most comprehensive view, we recommend using the interactive docs.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>One Request - Journey Planning Service for all Free Peoples of Middle-earth</p>
+            <p>Established in the Third Age with the blessing of the White Council</p>
+            <div class="scroll-text">
+                "Not all those who wander are lost, but all who journey wisely use One Request"
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple tab functionality for the code examples
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+
+                    // Hide all tab content
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Show the content for the clicked tab
+                    const contentId = tab.getAttribute('data-tab');
+                    document.getElementById(contentId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

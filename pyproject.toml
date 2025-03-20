@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "one_request"
+version = "0.1.0"
+description = "APIsec University One-Request Vulnerable REST API"
+authors = ["Brodie Davis <brodie@malteksolutions.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = "^6.0"
+toml = "^0.10.2"
+sqlalchemy = "^2.0.36"
+uvicorn = {extras = ["standard"], version = "^0.32.0"}
+pydantic = {extras = ["email"], version = "^2.9.2"}
+fastapi = "^0.115.5"
+cincoconfig = "^0.9.0"
+pyjwt = "^2.9.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-multipart = "^0.0.17"
+bcrypt = "^4.2.0"
+alembic = "^1.14.0"
+sqlmodel = "^0.0.22"
+fastapi-pagination = "^0.12.32"
+xkcdpass = "^1.19.9"
+requests = "^2.32.3"
+psycopg2-binary = "^2.9.10"
+jinja2 = "^3.1.5"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.0.1"
+black = "^23.1.0"
+isort = "^5.12.0"
+autoflake = "^2.0.1"
+flake8 = "^6.0.0"
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+pylint = "^2.16.4"
+ptpython = "^3.0.29"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 120
+
+[tool.black]
+line-length = 120
+target-version = ['py310', 'py311', 'py312']
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+dev = "one_request.__main__:main"
+gen-data = "scripts.gen_data:main"
+

@@ -1,0 +1,14 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: root
+    environment:
+      DB_URL: "sqlite:////data/one_request.sqlite3"
+      LOG_LEVEL: debug
+      OPENAPI_SERVER: http://localhost:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data

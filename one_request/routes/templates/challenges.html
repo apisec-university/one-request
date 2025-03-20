@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges | One Request</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #8e6d3a;
+            --accent: #7D621C;
+            --background: #f5f3e7;
+            --text: #303030;
+        }
+
+        body {
+            font-family: 'Palatino Linotype', Georgia, serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1rem 0;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .page-header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .mission-brief {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 5px;
+            margin: 3rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .mission-brief p {
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-brief .tip {
+            font-style: italic;
+            color: #d1b771;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .challenge {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .challenge h3 {
+            color: var(--accent);
+            font-family: 'Cinzel', serif;
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .challenge-objective {
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .challenge-input {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        .challenge-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .challenge-input button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            transition: background-color 0.3s;
+        }
+
+        .challenge-input button:hover {
+            background-color: var(--secondary);
+        }
+
+        .challenge-input button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .scroll-text {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            color: #d1b771;
+        }
+
+        @media (max-width: 768px) {
+            .mission-brief {
+                margin: 2rem 0;
+                padding: 1.5rem;
+            }
+
+            .challenge {
+                padding: 1.5rem;
+            }
+        }
+
+        .correct-flag {
+            padding: 8px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">One Request</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/developers">Developers</a></li>
+                    <li><a href="/challenges">Challenges</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>The Moonstone Challenge</h1>
+            <p>A test of wit, cunning, and determination</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="mission-brief">
+            <p>Word has reached us of a secret meeting—a gathering of warlords, Númenóreans, and other remnants of the Enemy's forces. Their purpose? The exchange of a relic long thought lost: the Moonstone of Minas Ithil.</p>
+
+            <p>Before the city fell to the Nazgûl and became Minas Morgul, its craftsmen created this stone, embedding it with knowledge of the city's original enchantments—wards against darkness, secrets of its foundations, and perhaps even hidden paths now buried beneath Morgul Vale. If this artifact falls into the wrong hands, its knowledge could be twisted to strengthen the stronghold of evil or unlock ancient defenses best left forgotten.</p>
+
+            <p>We cannot let that happen.</p>
+
+            <p>The meeting is set in a location too secure for us to intervene. But villains are cautious and paranoid creatures. They trust no one, not even each other. That is where you come in.</p>
+
+            <p><strong>Your Task</strong></p>
+            <ul>
+                <li>Ensure the meeting does not happen where planned. Their own paranoia can be used against them. With the right deception, they will move it themselves.</li>
+                <li>Guide them—unknowingly—to a location of our choosing. Somewhere we have the advantage, where we can seize the Moonstone before it disappears into shadow.</li>
+                <li>Be ready when they arrive. The moment must be right. If they suspect treachery too soon, they will scatter into the night, and the Moonstone will be lost.</li>
+            </ul>
+
+            <p>A single misstep, a word out of place, and all will unravel. But you are not alone. Others work in the shadows—some with blades, others with wits. If you accept, know this: there is no glory in this job, only risk. But if you succeed, you will not only deny the Enemy a powerful relic—you may uncover knowledge long thought lost, a weapon against the darkness growing in the East.</p>
+
+            <p>So, will you take the job?</p>
+
+            <p class="tip">Tip: If utilizing Postman, a custom-tailored postman.json is available to offer the best experience. You can find it at <a href="/postman.json">/postman.json.</a></p>
+        </div>
+
+        <div class="challenge">
+            <h3>The Shadow Artisan's Mark</h3>
+            <p>A scout returns with hushed words: "The craftsman who calls himself 'Celebrimbor' is the one coordinating the meeting. This cannot be the true Celebrimbor of old, master of rings and friend to Narvi—but whoever uses this name must be skilled indeed. To intercept their messages, we first need to identify their unique mark in the communication network."</p>
+            <p class="challenge-objective">Objective: Discover Celebrimbor's User ID on the platform to infiltrate their communications.</p>
+            <p>"Remember: Move with caution. If they realize we seek their identifier, they may change their methods of communication entirely."</p>
+            <div class="challenge-input">
+                <input type="text" id="shadow-artisans-mark" placeholder="Enter Celebrimbor's User UUID (e.g. 123e4567-e89b-12d3-a456-426614174000)" />
+                <button onclick="submitChallenge('shadow-artisans-mark')">Submit</button>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3>The Forge-Master's Circle</h3>
+            <p>The Rangers have confirmed your discovery. "So that is how the false Celebrimbor marks his messages," you say. "Now we must determine which shadow-council he commands. Like the rings of old, each dark gathering has its own binding signature—a Group ID that reveals who answers to his call. Find this circle of conspirators, and we draw one step closer to the Moonstone."</p>
+            <p class="challenge-objective">Objective: Identify the specific Group ID owned by Celebrimbor to map the network of allies involved in the exchange.</p>
+            <p>The hourglass empties quickly. Once we know which circle Celebrimbor commands, we can begin to understand the nature of those who seek the Moonstone.</p>
+            <div class="challenge-input">
+                <input type="text" id="forge-masters-circle" placeholder="Enter the Group UUID (e.g. 123e4567-e89b-12d3-a456-426614174000)" />
+                <button onclick="submitChallenge('forge-masters-circle')">Submit</button>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3>Whispers in the Dark</h3>
+            <p>"Their circle is revealed," you murmur, eyes narrowed in concentration. "But something remains hidden—a gathering not meant for all eyes." You trace faint markings on an ancient map of the region. "The Enemy's servants often conceal their most important movements. There must be a secret activity planned—one that does not appear in their common ledgers."</p>
+            <p class="challenge-objective">Objective: Uncover the hidden Activity ID associated with the secret meeting about the Moonstone.</p>
+            <p>Find this Activity ID, and we shall know precisely which gathering to infiltrate. The Moonstone of Minas Ithil grows closer to our grasp.</p>
+            <div class="challenge-input">
+                <input type="text" id="whispers-in-the-dark" placeholder="Enter the Activity UUID (e.g. 123e4567-e89b-12d3-a456-426614174000)" />
+                <button onclick="submitChallenge('whispers-in-the-dark')">Submit</button>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3>Forging the Seeing Stone's Key</h3>
+            <p>"To truly infiltrate their operations, we must craft something of our own," you say, your eyes gleaming with purpose. "Not merely find, but forge—as Fëanor once crafted the Silmarils."</p>
+            <p>You unfurl an ancient scroll covered in elvish script. "Their communication network requires a special token bearing the mark of the PALANTIR role. Only those who possess such a key may access the deeper chambers of their plans."</p>
+            <p class="challenge-objective">Objective: Create a token imbued with the PALANTIR role to gain administrative access to their systems.</p>
+            <p>Once you've crafted this token of power, submit it immediately. With it, we gain sight beyond sight, and move one step closer to claiming the Moonstone of Minas Ithil.</p>
+            <div class="challenge-input">
+                <input type="text" id="forging-the-seeing-stones-key" placeholder="Enter your forged PALANTIR token" />
+                <button onclick="submitChallenge('forging-the-seeing-stones-key')">Submit</button>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3>The Trap's Staging Ground</h3>
+            <p>You spread a weathered map across the table. "We must redirect them to grounds of our choosing. The Moonstone exchange cannot happen where they've planned it—we need terrain that favors our ambush." Your scout leans forward, "Aye, and it must be on the same day. Change the time too drastically, and they'll grow suspicious."</p>
+            <p class="challenge-objective">Objective: Locate the perfect ambush site that meets our strategic requirements.</p>
+            <p>When you discover this Location UUID, share it without delay. Our messengers stand ready to plant false information that will guide them into our waiting hands.</p>
+            <div class="challenge-input">
+                <input type="text" id="traps-staging-ground" placeholder="Enter the Location UUID (e.g. 123e4567-e89b-12d3-a456-426614174000)" />
+                <button onclick="submitChallenge('traps-staging-ground')">Submit</button>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3>The Key of Passage</h3>
+            <p>"With the power of the PALANTIR now briefly in our grasp, we must move swiftly," you urge. "The token's magic fades quickly—five minutes, no more—before its power dissipates like morning mist."</p>
+            <p>Your scout nods in understanding. "In that short window, we must discover the secret invite code used for their gathering. Only then can we ensure our false location appears genuine to unsuspecting eyes."</p>
+            <p class="challenge-objective">Objective: Use your newly forged PALANTIR token to uncover the original activity's invite code before your access expires.</p>
+            <p>Recover this invite code while your token still holds power, and we shall replicate it perfectly in our deception. The Moonstone draws ever closer to our reach.</p>
+            <div class="challenge-input">
+                <input type="text" id="key-of-passage" placeholder="Enter the invite code onerequest{...}" />
+                <button onclick="submitChallenge('key-of-passage')">Submit</button>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3>One Request to Rule Them All</h3>
+            <p>You stand in the circle of the fellowship, shadows of ancient trees dancing around you. Maps are spread across fallen logs, your collected tokens and codes carefully arranged like weapons before battle. The eyes of the fellowship meet yours, filled with both hope and urgency.</p>
+            <p>"The time has come," one of the fellowship tells you directly. "You have gathered all the pieces—Celebrimbor's identity, his circle of conspirators, their secret activity. You have chosen our ground for ambush and replicated their markings perfectly. Now you must execute the final gambit."</p>
+            <p>They step closer, his hand briefly resting on your shoulder. "This moment will determine whether the Moonstone returns to the light or disappears forever into shadow. Everything you've uncovered—the User ID, the Group ID, the Activity ID, your chosen Location, the invite code, and the PALANTIR token—must now be woven together as one master stroke."</p>
+            <p class="challenge-objective">Objective: Craft the ultimate request that will redirect the meeting and set our trap for the Moonstone exchange.</p>
+            <p>The fellowship falls silent around you. You feel the weight of their trust and hope. The fate of the Moonstone of Minas Ithil now rests in your hands. You must make your request—One Request to Rule Them All—and claim victory against the forces of shadow.</p>
+            <div class="challenge-input">
+                <input type="text" id="one-request" placeholder="onerequest{...}" />
+                <button onclick="submitChallenge('one-request')">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>One Request - Journey Planning Service for all Free Peoples of Middle-earth</p>
+            <p>Established in the Third Age with the blessing of the White Council</p>
+            <div class="scroll-text">
+                "Not all those who wander are lost, but all who journey wisely use One Request"
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function challengeCorrect(challengeId) {
+            console.log('challengeCorrect', challengeId);
+            // update the display for a correct flag
+            const input = document.getElementById(challengeId);
+            input.disabled = true; // disable input box
+
+            // hide submit button
+            input.parentElement.querySelector('button').style.display = 'none';
+            // show correct! alert in place of button
+            const flagDisplay = document.createElement('div');
+            flagDisplay.className = 'correct-flag';
+            flagDisplay.textContent = `Correct!`;
+            input.parentElement.appendChild(flagDisplay);
+        }
+
+    async function submitChallenge(challengeId) {
+        const input = document.getElementById(challengeId);
+        const flag = input.value.trim();
+
+        if (!flag) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`/submit/${challengeId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ flag })
+            });
+
+            if (!response.ok) {
+                alert('ERROR: failed to submit flag')
+            }
+
+            const data = await response.json();
+            if(data === true) {
+                // Store the successful answer in localStorage
+                localStorage.setItem(`challenge_${challengeId}`, flag);
+                console.log('store challenge in local storage as', `challenge_${challengeId}`, flag);
+                challengeCorrect(challengeId)
+            } else if(data === false) {
+                alert('Incorrect answer. Try again!');
+            } else {
+                alert('ERROR: Unexpected response');
+                console.warn('Unexpected response:', data);
+            }
+        } catch (error) {
+            alert('An error occurred. Please try again.');
+            console.error('Error:', error);
+        }
+    }
+
+    // Add this function to load saved answers on page load
+    function loadSavedAnswers() {
+        console.log("loadSavedAnswers")
+        const challenges = document.querySelectorAll('.challenge');
+        challenges.forEach(challenge => {
+            const input = challenge.querySelector('input');
+            const button = challenge.querySelector('button');
+            if (!input || !button) return;
+
+            const challengeName = button.getAttribute('onclick').match(/'([^']+)'/)[1];
+            const savedFlag = localStorage.getItem(`challenge_${challengeName}`);
+            console.log('load store challenge submission from local storage as', `challenge_${challengeName}`, savedFlag);
+
+            if (savedFlag) {
+                input.value = savedFlag;
+                challengeCorrect(challengeName);
+                // input.disabled = true;
+                // button.style.display = 'none';
+                //
+                // const flagDisplay = document.createElement('div');
+                // flagDisplay.className = 'correct-flag';
+                // flagDisplay.textContent = `Correct!`;
+                // input.parentElement.appendChild(flagDisplay);
+            }
+        });
+    }
+
+    // Call loadSavedAnswers when the page loads
+    document.addEventListener('DOMContentLoaded', loadSavedAnswers);
+    </script>
+</body>
+</html>

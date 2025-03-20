@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | One Request</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #8e6d3a;
+            --accent: #7D621C;
+            --background: #f5f3e7;
+            --text: #303030;
+        }
+
+        body {
+            font-family: 'Palatino Linotype', Georgia, serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1rem 0;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .page-header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .feature {
+            margin-bottom: 4rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .feature:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-content {
+            flex: 2;
+        }
+
+        .feature-image {
+            flex: 1;
+            min-height: 300px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .feature-list {
+            margin-top: 1.5rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li:before {
+            content: '•';
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        .pricing {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .pricing h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .currency {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .currency-item {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .currency-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .scroll-text {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            color: #d1b771;
+        }
+
+        @media (max-width: 768px) {
+            .feature {
+                flex-direction: column;
+            }
+
+            .feature:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .feature-image {
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            .currency {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">One Request</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/developers">Developers</a></li>
+                    <li><a href="/challenges">Challenges</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Discover the breadth of capabilities available through One Request</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="feature">
+                <div class="feature-content">
+                    <h3>Location Registry</h3>
+                    <p>Our extensive network spans all corners of Middle-earth, from the northernmost dwellings of Forodwaith to the golden halls of Harad. Each location in our registry has been personally visited and vetted by our agents, with detailed information on accommodations, local customs, and security considerations.</p>
+
+                    <p>Unlike common travel arrangements, One Request maintains diplomatic relationships with leaders in each realm, ensuring our travelers receive priority access and special considerations not available to independent wanderers.</p>
+
+                    <div class="feature-list">
+                        <h4>Notable Locations Include:</h4>
+                        <ul>
+                            <li>The hidden valley of Imladris (Rivendell)</li>
+                            <li>The golden wood of Lothlorien</li>
+                            <li>The Glittering Caves of Aglarond</li>
+                            <li>The rebuilt splendor of Minas Tirith</li>
+                            <li>The halls of Erebor, the Lonely Mountain</li>
+                            <li>The peaceful landscapes of the Shire</li>
+                            <li>The horse-lords' capital of Edoras</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-image" style="background-image: url('/static/images/locations-map.jpg');"></div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-content">
+                    <h3>Activities & Experiences</h3>
+                    <p>Beyond mere lodging and transport, One Request specializes in arranging unique cultural experiences that would otherwise be inaccessible to travelers. Our diplomatic standing with the ruling bodies of each realm allows us to arrange specialized training, cultural exchanges, and rare experiences.</p>
+
+                    <p>Each activity is led by a master in their respective craft, often individuals whose skills have been honed over centuries. Whether you seek the warrior traditions of Rohan or the delicate craft of Elven jewelry-making, our network can arrange the proper introductions.</p>
+
+                    <div class="feature-list">
+                        <h4>Popular Experiences:</h4>
+                        <ul>
+                            <li>Archery training with the Galadhrim of Lorien</li>
+                            <li>Smithing workshops with the master crafters of Erebor</li>
+                            <li>Wine tasting in the cellars of Dorwinion</li>
+                            <li>Horseback riding with the Rohirrim</li>
+                            <li>Ancient history lectures in the libraries of Minas Tirith</li>
+                            <li>Star-gazing from the observation towers of Eärendil</li>
+                            <li>Hobbit cooking classes in the Shire</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-image" style="background-image: url('/static/images/activities.jpg');"></div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-content">
+                    <h3>Fellowship Management</h3>
+                    <p>The true power of One Request lies in its ability to coordinate complex itineraries for groups of travelers. Whether you're organizing a scholarly expedition, a diplomatic mission, or a family reunion, our system can handle the intricate logistics required when multiple individuals journey together.</p>
+
+                    <p>Each fellowship receives dedicated management, with secure communications, shared itineraries, and specialized requirements all handled through a single coordinating entity rather than disparate arrangements.</p>
+
+                    <div class="feature-list">
+                        <h4>Fellowship Features:</h4>
+                        <ul>
+                            <li>Secure messaging between fellowship members</li>
+                            <li>Shared access to itineraries and bookings</li>
+                            <li>Specialized dietary and accommodation requirements</li>
+                            <li>Security briefings for areas with known dangers</li>
+                            <li>Cultural advisors to prevent diplomatic incidents</li>
+                            <li>Emergency extraction protocols</li>
+                            <li>Multi-language support across all free peoples</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-image" style="background-image: url('/static/images/fellowship.jpg');"></div>
+            </div>
+
+            <div class="pricing">
+                <h3>Currency & Payment</h3>
+                <p>One Request accepts all major currencies of Middle-earth. Our sophisticated exchange system ensures fair rates regardless of your native realm. For the convenience of our clients, we maintain the following currency standards:</p>
+
+                <div class="currency">
+                    <div class="currency-item">
+                        <div class="currency-name">GOLD</div>
+                        <p>Gold pieces minted in Gondor, accepted throughout all realms</p>
+                    </div>
+                    <div class="currency-item">
+                        <div class="currency-name">SILV</div>
+                        <p>Silver coins, the standard currency for most transactions</p>
+                    </div>
+                    <div class="currency-item">
+                        <div class="currency-name">MITH</div>
+                        <p>Mithril certificates, for premium services and rare experiences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>One Request - Journey Planning Service for all Free Peoples of Middle-earth</p>
+            <p>Established in the Third Age with the blessing of the White Council</p>
+            <div class="scroll-text">
+                "Not all those who wander are lost, but all who journey wisely use One Request"
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

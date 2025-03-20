@@ -1,0 +1,62 @@
+{
+  "item": [],
+  "info": {
+    "name": "One Request API",
+    "description": "One Request to Rule Them All!",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "username",
+      "value": "user@example.com",
+      "type": "string"
+    },
+    {
+      "key": "password",
+      "value": "string",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "{{baseUrl}}/token",
+        "type": "string"
+      },
+      {
+        "key": "tokenRequestParams",
+        "type": "string",
+        "value": [
+          {
+            "key": "x-api-version",
+            "value": "v2",
+            "enabled": true,
+            "send_as": "request_header"
+          }
+        ]
+      },
+      {
+        "key": "password",
+        "value": "{{password}}",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "{{username}}",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "password_credentials",
+        "type": "string"
+      }
+    ]
+  }
+}
